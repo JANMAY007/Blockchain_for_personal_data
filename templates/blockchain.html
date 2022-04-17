@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>
+        {% block title %}
+            Block mining
+        {% endblock %}
+    </title>
+</head>
+<body>
+{% block content %}
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            {{ response['index'] }}
+        </div>
+        <div class="panel-body">
+            <div class="container">
+                <div class="panel-group" id="accordian" style="width: 50%">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a href="#first" data-toggle="collapse" data-parent="#accordian">
+                                    Original data
+                                </a>
+                            </h4>
+                        </div>
+                        <div class="panel-collapse collapse in" id="first">
+                            <div class="panel-body">
+                                <br>
+                                {% for hd in range(hidden_len) %}
+                                    {{ hidden_data[hd] }}
+                                    <br>
+                                {% endfor %}
+                                {% for dd in range(display_len) %}
+                                    {{ display_data[dd] }}
+                                    <br>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a href="#second" data-toggle="collapse" data-parent="#accordian">
+                                    Hashed data
+                                </a>
+                            </h4>
+                        </div>
+                        <div class="panel-collapse collapse" id="second">
+                            <div class="panel-body">
+                                <br>
+                                {% for hd in range(hashed_len) %}
+                                    {{ hashed_data[hd] }}
+                                    <br>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            {{ response['proof'] }}
+            <br>
+            {{ response['transactions'] }}
+        </div>
+        <div class="panel-footer bg-primary">
+            Hash {{ response['previous_hash'] }}
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>

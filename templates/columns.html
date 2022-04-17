@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            Columns
+        {% endblock %}
+    </title>
+</head>
+<body>
+{% block content %}
+    <fieldset>
+        <legend>
+        Select the column/s for masking
+        </legend>
+        <form class="example" method="post" action="" style="margin:auto;max-width:600px">
+            <input type="hidden" name="form-name" value="form2">
+            {% for cols in column_names %}
+                <label>
+                    <input type="checkbox" name="mycheckbox" value="{{ cols }}"> {{ cols }}
+                </label>
+                <br>
+            {% endfor %}
+            <button type="submit" value="submit">
+                Submit
+            </button>
+        </form>
+        </fieldset>
+{% endblock %}
+</body>
+</html>

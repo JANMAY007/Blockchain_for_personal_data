@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <title>{% block title %}
+        Blockchain
+    {% endblock %}</title>
+</head>
+<body>
+{% block content %}
+    {% for res in response %}
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                {{ res['index'] }}
+            </div>
+            <div class="panel-body">
+                {{ res['timestamp'] }}
+                <br>
+                {{ res['transactions'] }}
+                <br>
+                {{ res['proof'] }}
+            </div>
+            <div class="panel-footer bg-primary">
+                Hash {{ res['previous_hash'] }}
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
+</body>
+</html>

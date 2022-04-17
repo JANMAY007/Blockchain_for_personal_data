@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            Upload CSV file
+        {% endblock %}
+    </title>
+</head>
+<body>
+{% block content %}
+    <fieldset>
+        <legend>
+        Upload Your CSV file HERE
+        </legend>
+        <form class="example" method="post" action="" style="margin:auto;max-width:600px" enctype=multipart/form-data>
+            <input type="hidden" value="form1" name="form-name">
+            <label>
+                <input type="file" name="file" id="file" accept=".csv">
+            </label>
+            <button type="submit" value="submit">
+                upload
+            </button>
+        </form>
+    </fieldset>
+{% endblock %}
+</body>
+</html>
