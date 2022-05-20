@@ -33,11 +33,11 @@
                             <div class="panel-body">
                                 <br>
                                 {% for hd in range(hidden_len) %}
-                                    {{ hidden_data[hd] }}
+                                    {{ true_cols[hd] }} : {{ hidden_data[hd] }}
                                     <br>
                                 {% endfor %}
                                 {% for dd in range(display_len) %}
-                                    {{ display_data[dd] }}
+                                    {{ display[dd] }} : {{ display_data[dd] }}
                                     <br>
                                 {% endfor %}
                             </div>
